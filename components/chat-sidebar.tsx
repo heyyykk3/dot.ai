@@ -340,7 +340,7 @@ export function ChatSidebar({
         <Button
           variant={chat.id === chatId ? "secondary" : "ghost"}
           className={cn(
-            "w-full justify-start gap-2 text-left",
+            "w-full justify-start gap-2 text-left overflow-hidden text-ellipsis",
             chat.id === chatId && "bg-sky-100 text-sky-700 dark:bg-sky-900/30 dark:text-sky-300",
           )}
           onClick={() => handleSelectChat(chat.id)}
@@ -351,7 +351,7 @@ export function ChatSidebar({
         <Button
           variant="ghost"
           size="icon"
-          className="absolute top-0 right-0 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity"
+          className="absolute top-0 right-0 h-8 w-8 opacity-0 group-hover:opacity-100 transition-opacity z-10 flex items-center justify-center p-1"
           onClick={(e) => handleDeleteChat(chat.id, e)}
         >
           <Trash className="h-4 w-4" />

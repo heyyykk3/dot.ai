@@ -164,6 +164,15 @@ const renderMessageContent = (
   return mediaItems.map((item, index) => renderMediaItem(item, message.id, index, imageErrors, handleImageError))
 }
 
+// URL formatting function
+const formatUrl = (url: string) => {
+  const maxLength = 50
+  if (url.length > maxLength) {
+    return url.substring(0, maxLength) + "..."
+  }
+  return url
+}
+
 export function ChatMessages({ messages, isLoading, topic = "New Chat", messagesEndRef }: ChatMessagesProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const prevMessagesLengthRef = useRef<number>(0)
